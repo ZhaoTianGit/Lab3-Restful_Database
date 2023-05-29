@@ -1,0 +1,8 @@
+POST http://localhost:3000/usersCreate
+Content-Type: application/json
+
+{
+  "name": "maophin7",
+  "matrixNo": "B02423443",
+  "password": "eeee"
+}
