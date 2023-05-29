@@ -6,3 +6,11 @@ Content-Type: application/json
   "matrixNo": "B02423443",
   "password": "eeee"
 }
+
+
+###
+GET http://localhost:3000/usersGet
+
+
+###
+GET http://localhost:3000/users/:id
