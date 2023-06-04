@@ -1,1 +1,1 @@
-run().catch(console.dir);
+usersUpdate
