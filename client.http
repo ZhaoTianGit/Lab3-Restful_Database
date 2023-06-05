@@ -4,7 +4,7 @@ Content-Type: application/json
 {
   "name": "zhaotian",
   "matrixNo": "B024230093",
-  "password": "holy mama"
+  "password": "asdasd"
 }
 
 
@@ -18,9 +18,9 @@ Content-Type: application/json
 
 
 {
-    "matrixNo": "B024230093",
-    "name": "zhaotian",
-    "password": "yabe"
+    "matrixNo": "B02423001",
+    "name": "maophin",
+    "password": "noProblem"
 }
 
 
@@ -30,4 +30,16 @@ Content-Type: application/json
 
 {
   "matrixNo": "B024230093"
+}
+
+
+###
+PATCH http://localhost:3000/encryptUpdate
+Content-Type: application/json
+
+
+{
+    "name": "maophin7",
+    "matrixNo": "B02423443",
+    "password": "eeee"
 }

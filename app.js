@@ -135,4 +135,47 @@ app.delete('/usersDelete', async (req, res) => {
 });
 
 
+const bcrypt = require('bcrypt') // to hash the password
+const saltRounds = 13 // the higher the number the more secure, but slower
 
+async function encryptPassword(password) {
+  // Generate a salt
+  const salt = await bcrypt.genSalt(10);
+
+  // Hash the password with the salt
+  const hash = await bcrypt.hash(password, salt);
+
+  // Return the hash and salt
+  return hash
+}
+
+// encrypted update
+app.patch('/encryptUpdate', async (req, res) => {
+  try {
+    const db = client.db(dbName);
+    const collection = db.collection(dbCollection);
+
+    const filter = { matrixNo: req.body.matrixNo };
+    const update = {
+      $set: {
+        name: req.body.name,
+        password: await encryptPassword(req.body.password),
+        matrixNo: req.body.matrixNo
+      }
+    };
+    console.log(filter);  // check 'filter' content
+    console.log(update);  // check 'update' content
+
+    const result = await collection.updateOne(filter, update);
+    console.log(result);  // check 'result' content
+    if (result.matchedCount === 1) {
+      res.send('User updated successfully!');
+      console.log("User with", req.body.matrixNo, "is updated successfully!");
+    } else {
+      res.status(404).send('User not found.');
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('An error occurred while updating the user.');
+  }
+});
