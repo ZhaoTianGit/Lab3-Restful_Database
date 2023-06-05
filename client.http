@@ -2,9 +2,9 @@ POST http://localhost:3000/usersCreate
 Content-Type: application/json
 
 {
-  "name": "maophin7",
-  "matrixNo": "B02423443",
-  "password": "eeee"
+  "name": "maophin",
+  "matrixNo": "B02423001",
+  "password": "cccc"
 }
 
 
@@ -12,18 +12,19 @@ Content-Type: application/json
 GET http://localhost:3000/usersGet
 
 
+
 ###
 GET http://localhost:3000/users/:id
+
 
 
 ###
 PATCH http://localhost:3000/usersUpdate
 Content-Type: application/json
 
-[
-  {
-    "matrixNo": "B02423233",
-    "name": "maomao",
-    "password": "aaaa"
-  }
-]
+
+{
+    "matrixNo": "B02423001",
+    "name": "phinphin",
+    "password": "omg"
+}
