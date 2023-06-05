@@ -2,20 +2,14 @@ POST http://localhost:3000/usersCreate
 Content-Type: application/json
 
 {
-  "name": "maophin",
-  "matrixNo": "B02423001",
-  "password": "cccc"
+  "name": "zhaotian",
+  "matrixNo": "B024230093",
+  "password": "holy mama"
 }
 
 
 ###
 GET http://localhost:3000/usersGet
-
-
-
-###
-GET http://localhost:3000/users/:id
-
 
 
 ###
@@ -24,7 +18,16 @@ Content-Type: application/json
 
 
 {
-    "matrixNo": "B02423001",
-    "name": "phinphin",
-    "password": "omg"
+    "matrixNo": "B024230093",
+    "name": "zhaotian",
+    "password": "yabe"
+}
+
+
+###
+DELETE http://localhost:3000/usersDelete
+Content-Type: application/json
+
+{
+  "matrixNo": "B024230093"
 }

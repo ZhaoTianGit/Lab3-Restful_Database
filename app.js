@@ -100,11 +100,11 @@ app.patch('/usersUpdate', async (req, res) => {
         matrixNo: req.body.matrixNo
       }
     };
-    console.log(filter);
-    console.log(update);
+    console.log(filter);  // check 'filter' content
+    console.log(update);  // check 'update' content
 
     const result = await collection.updateOne(filter, update);
-    console.log(result);
+    console.log(result);  // check 'result' content
     if (result.matchedCount === 1) {
       res.send('User updated successfully!');
       console.log("User with", req.body.matrixNo, "is updated successfully!");
@@ -117,15 +117,20 @@ app.patch('/usersUpdate', async (req, res) => {
   }
 });
 
+// DELETE request - delete user by matrix No
 app.delete('/usersDelete', async (req, res) => {
   try {
       const db = client.db(dbName);
       const collection = db.collection(dbCollection);
+      const matrixNo = { matrixNo: req.body.matrixNo };
+      console.log(matrixNo);  //check 'matrixNo' content
 
-      
-      
+      const result = await collection.deleteOne(matrixNo)
+      console.log(result);
+      res.status(200).send("User removed successfully!")
   } catch (err) {
       res.status(500).send(err);
+      res.status(500).send('An error occurred while updating the user.');
   }
 });
 
