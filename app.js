@@ -149,6 +149,22 @@ async function encryptPassword(password) {
   return hash
 }
 
+// encrypted create
+app.post('/encryptCreate', async (req, res) => {
+  try {
+    const db = client.db(dbName);
+    const collection = db.collection(dbCollection);
+    
+    let data = req.body;
+    data.password = await encryptPassword(data.password);
+    await collection.insertOne(req.body);
+    res.send(req.body);
+    console.log(req.body);  
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 // encrypted update
 app.patch('/encryptUpdate', async (req, res) => {
   try {

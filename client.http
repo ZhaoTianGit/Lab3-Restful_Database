@@ -43,3 +43,14 @@ Content-Type: application/json
     "matrixNo": "B02423443",
     "password": "eeee"
 }
+
+
+###
+POST http://localhost:3000/encryptCreate
+Content-Type: application/json
+
+{
+  "name": "zhaotian2",
+  "matrixNo": "B024230101",
+  "password": "geoguesser"
+}
